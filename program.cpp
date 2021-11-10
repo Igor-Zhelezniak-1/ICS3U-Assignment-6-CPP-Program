@@ -30,13 +30,13 @@ main() {
     std::string integer1;
     std::string integer2;
     std::string integer3;
-    int a1;
-    int b1;
-    int c1;
-    int d;
-    double answer;
-    double answer1;
-    double answer2;
+    float a1;
+    float b1;
+    float c1;
+    float d;
+    float answer;
+    float answer1;
+    float answer2;
 
     // input
     std::cout << "Enter a: ";
@@ -49,9 +49,9 @@ main() {
 
     // process
     try {
-        a1 = std::stoi(integer1);
-        b1 = std::stoi(integer2);
-        c1 = std::stoi(integer3);
+        a1 = std::stof(integer1);
+        b1 = std::stof(integer2);
+        c1 = std::stof(integer3);
 
         d = pow(b1, 2) - 4 * a1 * c1;
 
@@ -59,12 +59,19 @@ main() {
             std::cout << "There is no answer" << std::endl;
         } else if (d == 0) {
             answer = QuadraticFormula(a1, b1, c1, true);
-            std::cout << "The answer is " << answer << std::endl;
+            std::cout << "If the quadratic equation"
+            << " looks like this:" << std::endl;
+            std::cout << a1 << "x² + " << b1 << "x + " << c1 << std::endl;
+            std::cout << "Discriminant = " << d << std::endl;
+            std::cout << "x = " << answer << std::endl;
         } else {
             answer1 = QuadraticFormula(a1, b1, c1, true);
             answer2 = QuadraticFormula(a1, b1, c1, false);
-            std::cout << "The answers are " << answer1
-            << " and " << answer2 << std::endl;
+            std::cout << "If the quadratic equation"
+            << " looks like this:" << std::endl;
+            std::cout << a1 << "x² + " << b1 << "x + " << c1 << std::endl;
+            std::cout << "Discriminant = " << d << std::endl;
+            std::cout << "x = " << answer1 << " or " << answer2 << std::endl;
         }
     } catch (...) {
         std::cout << "Invalid input" << std::endl;
